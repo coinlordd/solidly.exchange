@@ -28,6 +28,7 @@ import stores from '../../stores'
 import { formatAddress } from '../../utils'
 
 import classes from './header.module.css'
+import Image from 'next/image'
 
 function SiteLogo(props) {
   const { className } = props
@@ -254,7 +255,10 @@ function Header(props) {
           <a onClick={() => router.push('/home')}>
             <SiteLogo className={classes.appLogo} />
           </a>
-          <Typography className={classes.version}>version 0.0.32</Typography>
+          <a href={`https://deus.finance`} target="_blank" rel="noreferrer" className={classes.deus}>
+            <Image src={'/tokens/deus.svg'} width="20px" height="20px" alt="deus" />
+            <Typography>Powered by DEUS Finance</Typography>
+          </a>
         </div>
 
         <Navigation changeTheme={props.changeTheme} />

@@ -52,12 +52,21 @@
   position: relative;
 }
 
-.version {
+.deus {
   position: absolute;
-  top: 12px;
-  left: 10px;
-  color: #fff !important;
+  display: flex;
+  align-items: center;
+  top: 14px;
+  left: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+.deus:hover {
+  color: #06d3d7;
+}
+.deus p {
   font-size: 10px !important;
+  margin-left: 5px;
 }
 
 .networkIcon {

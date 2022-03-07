@@ -6,6 +6,7 @@ import BribeCard from '../ssBribeCard'
 
 import stores from '../../stores'
 import { ACTIONS } from '../../stores/constants'
+import { EnhancedTableToolbar } from '../../pages/bribe'
 
 export default function Bribes() {
   const [, updateState] = useState()
@@ -33,6 +34,7 @@ export default function Bribes() {
 
   return (
     <div className={classes.container}>
+      <EnhancedTableToolbar />
       <div className={classes.bribesContainer}>
         {pairs &&
           pairs &&

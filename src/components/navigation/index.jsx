@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { Typography, Switch, SvgIcon } from '@material-ui/core'
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab'
 import { withTheme, withStyles } from '@material-ui/core/styles'
-
+import Image from 'next/image'
 import SSWarning from '../ssWarning'
 
 import classes from './navigation.module.css'
@@ -124,6 +124,7 @@ function Navigation(props) {
 
   const onActiveClick = (event, val) => {
     if (val) {
+      if (val.slice(0, 4) === 'http') return
       setActive(val)
       handleNavigate('/' + val)
     }
@@ -163,9 +164,11 @@ function Navigation(props) {
         {renderSubNav('Swap', 'swap')}
         {renderSubNav('Liquidity', 'liquidity')}
         {renderSubNav('Vest', 'vest')}
+        {renderSubNav('Bribe', 'bribe')}
         {renderSubNav('Vote', 'vote')}
         {renderSubNav('Rewards', 'rewards')}
         {renderSubNav('Whitelist', 'whitelist')}
+        {renderSubNavWithIcon('/socials/telegram.svg', 'https://t.me/solidlyvision')}
       </ToggleButtonGroup>
     )
   }
@@ -186,6 +189,23 @@ function Navigation(props) {
       <ToggleButton value={link} className={classes.navButton} classes={{ selected: classes.testChange }}>
         <Typography variant="h2" className={classes.subtitleText}>
           {title}
+        </Typography>
+      </ToggleButton>
+    )
+  }
+
+  const renderSubNavWithIcon = (icon, link) => {
+    return (
+      <ToggleButton
+        href={link}
+        value={link}
+        target="_blank"
+        className={classes.navButton}
+        style={{ display: 'flex', alignItems: 'center', lineHeight: '1' }}
+        classes={{ selected: classes.testChange }}
+      >
+        <Typography variant="h2" className={classes.subtitleText} style={{ lineHeight: '1' }}>
+          <Image width={'20px'} height={'20px'} src={icon} alt="deus" />
         </Typography>
       </ToggleButton>
     )

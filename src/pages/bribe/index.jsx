@@ -1,4 +1,4 @@
-import { Typography, Button, Paper, SvgIcon } from '@material-ui/core'
+import { Typography, Button, Paper, SvgIcon, Toolbar, Grid } from '@material-ui/core'
 import SSBribes from '../../components/ssBribes'
 
 import { useState, useEffect } from 'react'
@@ -7,6 +7,7 @@ import { ACTIONS } from '../../stores/constants'
 import stores from '../../stores'
 import { useRouter } from 'next/router'
 import Unlock from '../../components/unlock'
+import EnhancedEncryptionOutlinedIcon from '@material-ui/icons/CreateOutlined'
 
 import classes from './bribe.module.css'
 
@@ -69,6 +70,61 @@ function BalanceIcon(props) {
         ></rect>
       </g>
     </SvgIcon>
+  )
+}
+
+export const EnhancedTableToolbar = (props) => {
+  // const classes = useStyles()
+  const router = useRouter()
+
+  const [search, setSearch] = useState('')
+
+  const onSearchChanged = (event) => {
+    setSearch(event.target.value)
+  }
+
+  const onCreate = () => {
+    router.push('/bribe/create')
+  }
+
+  return (
+    <Toolbar
+      style={{
+        margin: '24px 0px',
+        padding: '0px',
+      }}
+    >
+      <Grid container spacing={1}>
+        <Grid lg="auto" md={12} sm={12} xs={12} item>
+          <Button
+            variant="contained"
+            startIcon={<EnhancedEncryptionOutlinedIcon />}
+            size="large"
+            style={{
+              color: 'rgb(6, 211, 215)',
+              background: 'rgb(23, 52, 72)',
+              fontWeight: '700',
+              width: '100%',
+              '&:hover': {
+                background: 'rgb(19, 44, 60)',
+              },
+            }}
+            color="primary"
+            onClick={onCreate}
+          >
+            <Typography
+              style={{
+                fontSize: '15px',
+                fontWeight: '700',
+              }}
+            >
+              Create Bribe
+            </Typography>
+          </Button>
+        </Grid>
+        <Grid item lg={true} md={true} sm={false} xs={false}></Grid>
+      </Grid>
+    </Toolbar>
   )
 }
 
