@@ -295,6 +295,8 @@ a.linkz {
 
 .navToggles {
   min-height: 50px;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .navButton {
@@ -311,7 +313,7 @@ a.linkz {
   color: #fff !important;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .navigationContainer {
     position: fixed;
     min-height: 60px;
@@ -492,6 +494,8 @@ a.linkz {
 
   .navigationContent {
     background: #111729;
+    display: flex;
+    flex-flow: row wrap;
     position: fixed;
     left: 0;
     top: 45px;

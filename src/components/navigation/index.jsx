@@ -169,6 +169,7 @@ function Navigation(props) {
         {renderSubNav('Rewards', 'rewards')}
         {renderSubNav('Whitelist', 'whitelist')}
         {renderSubNavWithIcon('/socials/telegram.svg', 'https://t.me/solidlyvision')}
+        {renderSubNavWithIcon('/socials/twitter.svg', 'https://twitter.com/SolidlyVision')}
       </ToggleButtonGroup>
     )
   }
