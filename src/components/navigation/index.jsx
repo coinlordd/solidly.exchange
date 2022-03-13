@@ -168,6 +168,7 @@ function Navigation(props) {
         {renderSubNav('Vote', 'vote')}
         {renderSubNav('Rewards', 'rewards')}
         {renderSubNav('Whitelist', 'whitelist')}
+        {renderSubNavWithExternalLink('Borrow', 'https://app.dei.finance/borrow')}
         {renderSubNavWithIcon('/socials/telegram.svg', 'https://t.me/solidlyvision')}
         {renderSubNavWithIcon('/socials/twitter.svg', 'https://twitter.com/SolidlyVision')}
       </ToggleButtonGroup>
@@ -188,6 +189,22 @@ function Navigation(props) {
   const renderSubNav = (title, link) => {
     return (
       <ToggleButton value={link} className={classes.navButton} classes={{ selected: classes.testChange }}>
+        <Typography variant="h2" className={classes.subtitleText}>
+          {title}
+        </Typography>
+      </ToggleButton>
+    )
+  }
+
+  const renderSubNavWithExternalLink = (title, link) => {
+    return (
+      <ToggleButton
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes.navButton}
+        classes={{ selected: classes.testChange }}
+      >
         <Typography variant="h2" className={classes.subtitleText}>
           {title}
         </Typography>
