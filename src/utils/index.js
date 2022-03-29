@@ -1,4 +1,22 @@
 import BigNumber from 'bignumber.js'
+import { fns } from 'fns-helper'
+
+async function resolveAddress(address) {
+  const name = fns.functions.getNameFromOwner(address);
+  if (name.split('').length > 0) {
+    // return name
+    return name;
+  } else {
+    // return address
+    return address;
+  }
+  return "Error: no idea";
+}
+
+async function ownesName(address) {
+  const name = fns.functions.getNameFromOwner(address);
+  return name.split('').length > 0;
+}
 
 export function formatCurrency(amount, decimals = 2) {
   if (!isNaN(amount)) {
@@ -18,16 +36,19 @@ export function formatCurrency(amount, decimals = 2) {
 }
 
 export function formatAddress(address, length = 'short') {
-  if (address && length === 'short') {
-    address = address.substring(0, 6) + '...' + address.substring(address.length - 4, address.length)
-    return address
-  } else if (address && length === 'long') {
-    address = address.substring(0, 12) + '...' + address.substring(address.length - 8, address.length)
-    return address
+  if (ownesName(address)) {
+    return resolveAddress(address);
   } else {
-    return null
-  }
-}
+    if (address && length === 'short') {
+      address = address.substring(0, 6) + '...' + address.substring(address.length - 4, address.length)
+      return address
+    } else if (address && length === 'long') {
+      address = address.substring(0, 12) + '...' + address.substring(address.length - 8, address.length)
+      return address
+    } else {
+      return null
+   }
+ }
 
 export function bnDec(decimals) {
   return new BigNumber(10).pow(parseInt(decimals))
