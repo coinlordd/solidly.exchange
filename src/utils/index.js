@@ -47,8 +47,9 @@ export function formatAddress(address, length = 'short') {
       return address
     } else {
       return null
-   }
- }
+    }
+  }
+}
 
 export function bnDec(decimals) {
   return new BigNumber(10).pow(parseInt(decimals))
