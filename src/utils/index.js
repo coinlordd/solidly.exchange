@@ -3,7 +3,7 @@ import { fns } from 'fns-helper'
 
 async function resolveAddress(address) {
   const name = fns.functions.getNameFromOwner(address);
-  if (name.split('').length > 0) {
+  if (name !== "") {
     // return name
     return name;
   } else {
@@ -15,7 +15,7 @@ async function resolveAddress(address) {
 
 async function ownesName(address) {
   const name = fns.functions.getNameFromOwner(address);
-  return name.split('').length > 0;
+  return name !== "";
 }
 
 export function formatCurrency(amount, decimals = 2) {
