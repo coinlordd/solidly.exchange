@@ -38,6 +38,7 @@ export function formatCurrency(amount, decimals = 2) {
 }
 
 export function formatAddress(address, length = 'short') {
+  console.log("Formatting address: " + address);
   if (ownesName(address)) {
     return resolveAddress(address);
   } else {
