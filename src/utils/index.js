@@ -3,6 +3,7 @@ import { fns } from 'fns-helper'
 
 async function resolveAddress(address) {
   const name = fns.functions.getNameFromOwner(address)[0];
+  console.log("FNS Name resolved: " + name);
   if (name !== "") {
     // return name
     return name;
@@ -15,6 +16,7 @@ async function resolveAddress(address) {
 
 async function ownesName(address) {
   const name = fns.functions.getNameFromOwner(address)[0];
+  console.log("FNS Name resolved: " + name);
   return name !== "";
 }
 
