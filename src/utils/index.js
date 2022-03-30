@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js'
 import { fns } from 'fns-helper'
 
 async function resolveAddress(address) {
-  const name = fns.functions.getNameFromOwner(address);
+  const name = fns.functions.getNameFromOwner(address)[0];
   if (name !== "") {
     // return name
     return name;
@@ -14,7 +14,7 @@ async function resolveAddress(address) {
 }
 
 async function ownesName(address) {
-  const name = fns.functions.getNameFromOwner(address);
+  const name = fns.functions.getNameFromOwner(address)[0];
   return name !== "";
 }
 
